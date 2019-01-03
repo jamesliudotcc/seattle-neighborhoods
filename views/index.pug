@@ -1,0 +1,25 @@
+extends layout.pug
+
+block content
+  div  
+  h1(class="avenir tc") Seattle Neighborhoods
+  h3(class="avenir tc")
+    a(href="/pokemon") Favorites
+
+  section(class="cf w-100 pa2-ns tc")
+    h2.text-centerreflow Neighborhoods 
+   
+    each neighborhood in arr_from_db
+      article(class="avenir fl w-50 w-25-m w-10-ns pa2-ns ma2 ba dark-grey")
+        p
+          a(href=neighborhood.link)=neighborhood.name
+        img(src=neighborhood.photo, alt="Photo of Neighborhood")
+        p= neighborhood.description
+
+        //- form(method="POST" action="/pokemon")
+        //-   div
+        //-     a(href=`/pokemon/${pokemon.name}`)
+        //-       div(class="aspect-ratio aspect-ratio--1x1")
+        //-         img(width="100%" src=pokemon.image)
+        //-       h3(class="avenir f5 f4-ns mb0 black-90 tc")= pokemon.name
+        //-   button(class="avenir f5 no-underline black bg-white bg-animate hover-bg-black hover-white inline-flex items-center pa3 ba border-box mr4 tc " type="submit") 🖤
